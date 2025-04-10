@@ -14,7 +14,21 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
 
 ## Instalación
 
-1.  **Requerir el paquete vía Composer:**
+1.  **Crear grupo de paquetes:**
+
+    Crear la carpeta packages en la raíz del proyecto:
+
+    ```bash
+    mkdir packages
+    ```
+
+    Crear el grupo de carpetas dentro de la carpeta creada:
+    
+    ```bash
+    mkdir lechuganegra
+    ```
+
+2.  **Requerir el paquete vía Composer:**
 
     Abre tu terminal y ejecuta el siguiente comando para agregar el paquete a las dependencias de tu proyecto:
 
@@ -24,7 +38,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
 
     Este comando descargará el paquete y actualizará tu archivo `composer.json`.
 
-2.  **Configurar el autoloading:**
+3.  **Configurar el autoloading:**
 
     Edita tu archivo `composer.json` y añade el namespace del paquete al autoloading de PSR-4:
 
@@ -47,7 +61,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
 
     Este paso asegura que Laravel pueda encontrar las clases del paquete.
 
-3.  **Generar la clave secreta de JWT:**
+4.  **Generar la clave secreta de JWT:**
 
     Ejecuta el siguiente comando para generar la clave secreta que se utilizará para firmar los tokens JWT:
 
@@ -57,7 +71,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
 
     Este comando agregará la clave secreta a tu archivo `.env`.
 
-4.  **Publicar la configuración de JWT:**
+5.  **Publicar la configuración de JWT:**
 
     Publica el archivo de configuración de JWT para poder personalizarlo si es necesario:
 
@@ -65,7 +79,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
     php artisan vendor:publish --provider="PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider"
     ```
 
-5.  **Configurar el guard de autenticación:**
+6.  **Configurar el guard de autenticación:**
 
     Edita el archivo `config/auth.php` y configura el guard `api` para utilizar JWT:
 
@@ -78,7 +92,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
     ],
     ```
 
-6.  **Implementar JWTSubject en el modelo de usuario:**
+7.  **Implementar JWTSubject en el modelo de usuario:**
 
     Abre tu modelo de usuario (generalmente `app/Models/User.php`) y agrega la interfaz `JWTSubject` y las funciones necesarias:
 
@@ -102,7 +116,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
     }
     ```
 
-7.  **Limpiar la caché:**
+8.  **Limpiar la caché:**
 
     Limpia la caché de configuración y rutas para asegurar que los cambios se apliquen correctamente:
 
