@@ -27,7 +27,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"glr@example.com\",\r\n  \"password\": \"glr2025\"\r\n}",
+							"raw": "{\r\n  \"email\": \"superadmin@example.com\",\r\n  \"password\": \"G13WS!\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -35,11 +35,50 @@
 							}
 						},
 						"url": {
-							"raw": "{{url}}api/login",
+							"raw": "{{url}}api/auth/login",
 							"host": [
 								"{{url}}api"
 							],
 							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login reCaptcha",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"superadmin@example.com\",\r\n  \"password\": \"G13WS!\",\r\n  \"recaptcha_token\": \"03AGdBq24kF5vIvbmLqwpJygjj2R1ZKdP15hIZmXiKdr-DFAU3b4dUw5Ns7UtD2YfbV9pVoHqkkb2cZKGrbXb3HvvOTb1EmFq2Q5_eXKlpqqThUVN0JdXpvR58qSg6dtcozkLr8yZoKM2nOQckch4YPuQ6l9hrv0ymQAB7CNSI9IrE0oarWk57p6fT_rPrbrANok3tNkowpAZHnsViNjJhS4eZjGCUwgdQ1U7_nkkvq2zNSwPbn0GTRrA5jvHl2Y39pQ5EvUihy9gPnJKbdMzEq1tPoFzQdlFJZkXLR_JrV3t3HF7UbMLdy-N0MfEjmO4DLpBPTs4_iUp4ICdmA0fGGNkGFH7PgrMNwPqgS0G2K9Z5VJ4bFbHiMNw6K9hr7htHlCe9QIT18y9XwWttJczMFjQlgfRogXQxF3NMY6lEop5AMMmWlKl41mGa62g==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}api/auth/login",
+							"host": [
+								"{{url}}api"
+							],
+							"path": [
+								"auth",
 								"login"
 							]
 						}
@@ -99,9 +138,6 @@
 				},
 				{
 					"name": "Refresh",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -113,7 +149,7 @@
 								}
 							]
 						},
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Accept",
