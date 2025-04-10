@@ -27,7 +27,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
     
     ```bash
     mkdir lechuganegra
-    cd packages
+    cd lechuganegra
     ```
 
 2.  **Clonar el paquete:**
@@ -135,6 +135,14 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
     php artisan config:cache
     php artisan route:clear
     php artisan route:cache
+    ```
+
+10.  **Regenerar clases:**
+
+    Regenerar las clases con el cargador automático "autoload"
+
+    ```bash
+    composer dump-autoload
     ```
 
 ## Uso
