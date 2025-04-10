@@ -155,3 +155,13 @@ Para proteger tus rutas con el middleware de autenticación, utiliza `auth:api` 
 Route::middleware(['auth:api', 'guard:api'])->group(function () {
     // Rutas protegidas
 });
+```
+
+### reCaptcha
+
+Para poder usar el endpoint de `login` con validación de reCaptcha, deberás agregar las credenciales en tu archivo .env:
+
+```nginx
+RECAPTCHA_ENABLED=true
+RECAPTCHA_SECRET_KEY=tu_secret_key_aqui
+```

@@ -26,10 +26,16 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         try {
+            if (config('authmanager.recaptcha.enabled')) {
+                if (empty($request->recaptcha_token) || !$this->authService->validateRecaptcha($request->recaptcha_token)) {
+                    return response()->json(['error' => 'Invalid reCAPTCHA'], 403);
+                }
+            }
+
             $credentials = $request->only('email', 'password');
 
             if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'No autorizado'], 401);
+                return response()->json(['error' => 'Unauthorized'], 401);
             }
 
             return $this->authService->respondWithToken($token);

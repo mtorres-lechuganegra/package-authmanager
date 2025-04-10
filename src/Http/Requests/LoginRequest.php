@@ -13,10 +13,16 @@ class LoginRequest extends FormRequest
 
     public function rules(): array
     {
-        return [
+        $rules = [
             'email' => 'required|email',
             'password' => 'required|string|min:6',
         ];
+    
+        if (config('authmanager.recaptcha.enabled')) {
+            $rules['recaptcha_token'] = 'required|string';
+        }
+    
+        return $rules;
     }
 
     public function messages()
@@ -27,6 +33,7 @@ class LoginRequest extends FormRequest
             'password.required' => 'The password is required.',
             'password.string' => 'The password must be a string.',
             'password.min' => 'The password must be at least 6 characters long.',
+            'recaptcha_token.required' => 'The reCAPTCHA token is required.'
         ];
     }
 }

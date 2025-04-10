@@ -16,12 +16,11 @@ class AuthManagerProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('authmanager', function ($app) {
-            return new AuthManagerService(JWTAuth::class);
-        });
-
-        // Registrar JWTAuth como servicio
-        $this->app->register(LaravelServiceProvider::class);
+        // Registrar archivo de configuración principal
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../config/authmanager.php',
+            'authmanager'
+        );
     }
 
     /**

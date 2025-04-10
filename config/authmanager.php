@@ -16,32 +16,15 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | JWT Secret
+    | ReCatpcha Setting
     |--------------------------------------------------------------------------
     |
-    | La clave secreta utilizada para firmar el JWT.
-    | Esto debe ser lo suficientemente largo y secreto.
+    | Variables de configuración para la validaciónd e recaptcha
     |
     */
-    'jwt_secret' => env('JWT_SECRET', 'your_secret_key'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Token Expiration
-    |--------------------------------------------------------------------------
-    |
-    | Tiempo de expiración del token en minutos.
-    |
-    */
-    'token_expiration' => env('JWT_EXPIRATION', 60),  // 60 minutos
-
-    /*
-    |--------------------------------------------------------------------------
-    | Refresh Token Expiration
-    |--------------------------------------------------------------------------
-    |
-    | Tiempo de expiración del token de refresco en días.
-    |
-    */
-    'refresh_token_expiration' => env('JWT_REFRESH_EXPIRATION', 30),  // 30 días
+    'recaptcha' => [
+        'enabled' => env('RECAPTCHA_ENABLED', false),
+        'secret_key' => env('RECAPTCHA_SECRET_KEY'),
+        'verify_url' => env('RECAPTCHA_VERIFY_URL', 'https://www.google.com/recaptcha/api/siteverify')
+    ]
 ];
