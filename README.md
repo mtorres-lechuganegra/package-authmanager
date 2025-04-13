@@ -58,7 +58,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
     {
         "autoload": {
             "psr-4": {
-                "LechugaNegra\\AuthManager\\": "packages/lechuganegra/authmanager/"
+                "LechugaNegra\\AuthManager\\": "packages/LechugaNegra/AuthManager/src/"
             }
         }
     }
