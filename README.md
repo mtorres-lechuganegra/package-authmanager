@@ -38,38 +38,41 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
     git clone https://github.com/mtorres-lechuganegra/package-authmanager.git authmanager
     ```
 
-3.  **Requerir el paquete vía Composer:**
+3.  **Configurar composer del proyecto:**
 
-    Abre tu terminal y ejecuta el siguiente comando para agregar el paquete a las dependencias de tu proyecto:
+    Dirígite a la raíz de tu proyecto, edita tu archivo `composer.json` y añade el paquete como repositorio:
 
-    ```bash
-    composer require lechuganegra/authmanager:@dev
+    ```json
+    {
+        "repositories": [
+            {
+                "type": "path",
+                "url": "packages/lechuganegra/authmanager"
+            }
+        ]
+    }
     ```
-
-    Este comando descargará el paquete y actualizará tu archivo `composer.json`.
-
-4.  **Configurar el autoloading:**
-
-    Edita tu archivo `composer.json` y añade el namespace del paquete al autoloading de PSR-4:
+    también deberás añadir el namespace del paquete al autoloading de PSR-4:
 
     ```json
     {
         "autoload": {
             "psr-4": {
-                "App\\": "app/",
                 "LechugaNegra\\AuthManager\\": "packages/lechuganegra/authmanager/"
             }
         }
     }
     ```
 
-    Luego, ejecuta el siguiente comando para regenerar el autoloading:
+4.  **Ejecutar composer require:**
+
+    Después de editar tu archivo, abre tu terminal y ejecuta el siguiente comando para agregar el paquete a las dependencias de tu proyecto:
 
     ```bash
-    composer dump-autoload
+    composer require lechuganegra/authmanager:@dev
     ```
 
-    Este paso asegura que Laravel pueda encontrar las clases del paquete.
+    Este comando descargará el paquete y actualizará tu archivo `composer.json`.
 
 5.  **Generar la clave secreta de JWT:**
 
@@ -91,7 +94,7 @@ Este paquete de Laravel 11 proporciona un sistema de autenticación completo y r
 
 7.  **Configurar el guard de autenticación:**
 
-    Edita el archivo `config/auth.php` y configura el guard `api` para utilizar JWT:
+    Edita el archivo `config/auth.php` y agrega `api` en el guard para utilizar JWT:
 
     ```php
     'guards' => [
