@@ -1,6 +1,6 @@
-# Lechuga Negra - AuthManager para Laravel 11
+# Lechuga Negra - AuthManager para Laravel
 
-Este paquete de Laravel 11 proporciona un sistema de autenticación completo y robusto para tus aplicaciones, simplificando la gestión de usuarios, el inicio y cierre de sesión, la generación y refresco de tokens JWT, y la validación de reCAPTCHA.
+Este paquete de Laravel proporciona un sistema de autenticación completo y robusto para tus aplicaciones, simplificando la gestión de usuarios, el inicio y cierre de sesión, la generación y refresco de tokens JWT, y la validación de reCAPTCHA.
 
 ## Características Principales
 
