@@ -10,6 +10,7 @@ Route::prefix('api/auth')->group(function () {
 Route::middleware(['auth:api'])->group(function () {
     Route::prefix('api/auth')->group(function () {
         Route::get('/me', [AuthController::class, 'me']);
+        Route::post('/validate', [AuthController::class, 'validate']);
         Route::post('/refresh', [AuthController::class, 'refresh']);
         Route::post('/logout', [AuthController::class, 'logout']);
     });

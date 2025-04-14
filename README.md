@@ -11,6 +11,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
 * **Refresco de Sesión:** Genera nuevos tokens JWT para mantener la sesión activa.
 * **Validación de reCAPTCHA:** Integración con reCAPTCHA para proteger contra ataques de fuerza bruta.
 * **Middleware de Autenticación:** Middleware para proteger rutas y asegurar que solo usuarios autenticados puedan acceder.
+* **Endpoint de validación de token:** Endpoint para validar token de autenticación, su objetivo es para uso de microservicio.
 
 ## Instalación
 

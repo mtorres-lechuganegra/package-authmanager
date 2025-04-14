@@ -59,6 +59,16 @@ class AuthController extends Controller
     }
 
     /**
+     * Validate token de autenticación.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function validate()
+    {
+        return response()->json(['validate' => true], 200);
+    }
+
+    /**
      * Refresca el token JWT.
      *
      * @return \Illuminate\Http\JsonResponse
