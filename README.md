@@ -139,7 +139,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     php artisan route:clear
     php artisan route:cache
     ```
-
+    
 10.  **Regenerar clases:**
 
     Regenerar las clases con el cargador automático "autoload"
