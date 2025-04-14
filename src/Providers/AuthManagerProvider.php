@@ -3,9 +3,6 @@
 namespace LechugaNegra\AuthManager\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use LechugaNegra\AuthManager\Services\AuthManagerService;
-use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
-use PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider;
 
 class AuthManagerProvider extends ServiceProvider
 {
