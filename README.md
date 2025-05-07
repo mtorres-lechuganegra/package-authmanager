@@ -59,7 +59,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     {
         "autoload": {
             "psr-4": {
-                "LechugaNegra\\AuthManager\\": "packages/LechugaNegra/AuthManager/src/"
+                "LechugaNegra\\AuthManager\\": "packages/lechugaNegra/authmanager/src/"
             }
         }
     }
@@ -150,6 +150,10 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     ```
 
 ## Uso
+
+### Endpoints del Servicio
+
+Puede importar el archivo `postman_collection.json` que se ubica en la carpeta `docs` de la raíz del paquete.
 
 ### Middleware de Autenticación
 
