@@ -75,8 +75,18 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
 
     Este comando descargará el paquete y actualizará tu archivo `composer.json`.
 
-5.  **Generar la clave secreta de JWT:**
+5.  **Publicar archivo de configuración:**
 
+    Ejecuta el siguiente comando para copiar el archivo de configuración del paquete a la carpeta `config` del proyecto::
+
+    ```bash
+    php artisan vendor:publish --tag=authmanager-config
+    
+    ```
+    
+    Esto te permitirá personalizar el comportamiento del paquete desde tu proyecto.
+
+6.  **Generar la clave secreta de JWT:**
     Ejecuta el siguiente comando para generar la clave secreta que se utilizará para firmar los tokens JWT:
 
     ```bash
@@ -85,7 +95,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
 
     Este comando agregará la clave secreta a tu archivo `.env`.
 
-6.  **Publicar la configuración de JWT:**
+7.  **Publicar la configuración de JWT:**
 
     Publica el archivo de configuración de JWT para poder personalizarlo si es necesario:
 
@@ -93,7 +103,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     php artisan vendor:publish --provider="PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider"
     ```
 
-7.  **Configurar el guard de autenticación:**
+8.  **Configurar el guard de autenticación:**
 
     Edita el archivo `config/auth.php` y agrega `api` en el guard para utilizar JWT:
 
@@ -106,7 +116,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     ],
     ```
 
-8.  **Implementar JWTSubject en el modelo de usuario:**
+9.  **Implementar JWTSubject en el modelo de usuario:**
 
     Abre tu modelo de usuario (generalmente `app/Models/User.php`) y agrega la interfaz `JWTSubject` y las funciones necesarias:
 
@@ -130,7 +140,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     }
     ```
 
-9.  **Limpiar la caché:**
+10.  **Limpiar la caché:**
 
     Limpia la caché de configuración y rutas para asegurar que los cambios se apliquen correctamente:
 
@@ -141,7 +151,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     php artisan route:cache
     ```
     
-10.  **Regenerar clases:**
+11.  **Regenerar clases:**
 
     Regenerar las clases con el cargador automático "autoload"
 

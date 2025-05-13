@@ -30,7 +30,7 @@ class AuthManagerProvider extends ServiceProvider
         // Publicar la configuración
         $this->publishes([
             __DIR__ . '/../../config/authmanager.php' => config_path('authmanager.php'),
-        ], 'config');
+        ], 'authmanager-config');
 
         // Cargar rutas de api.php
         $this->loadRoutesFrom(__DIR__.'/../Routes/api.php');
