@@ -2,6 +2,7 @@
 
 namespace LechugaNegra\AuthManager\Providers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AuthManagerProvider extends ServiceProvider
@@ -31,8 +32,26 @@ class AuthManagerProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../config/authmanager.php' => config_path('authmanager.php'),
         ], 'authmanager-config');
+        
+        // Cargar rutas dinámicas según la versión especificada en config
+        $this->loadVersionedRoutes();
+    }
 
-        // Cargar rutas de api.php
-        $this->loadRoutesFrom(__DIR__.'/../Routes/api.php');
+    /**
+     * Carga el archivo de rutas correspondiente a la versión configurada.
+     *
+     * @return void
+     */
+    protected function loadVersionedRoutes()
+    {
+        $version = config('authmanager.version', 'v1');
+        $routesPath = __DIR__ . "/../Routes/{$version}/api.php";
+
+        if (file_exists($routesPath)) {
+            Route::prefix("api/{$version}")
+                ->group($routesPath);
+        } else {
+            throw new \Exception("Routes file not found for version '{$version}'.");
+        }
     }
 }

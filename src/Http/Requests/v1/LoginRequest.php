@@ -1,6 +1,6 @@
 <?php
 
-namespace LechugaNegra\AuthManager\Http\Requests;
+namespace LechugaNegra\AuthManager\Http\Requests\v1;
 
 use Illuminate\Foundation\Http\FormRequest;
 

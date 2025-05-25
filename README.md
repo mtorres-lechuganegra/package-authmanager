@@ -86,6 +86,17 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     
     Esto te permitirá personalizar el comportamiento del paquete desde tu proyecto.
 
+6.  **Configurar el modelo de usuario (opcional):**
+
+    Puedes editar el archivo `config/authmanager.php` de tu proyecto y modificar la entrada `user_entity` con la información de tu modelo:
+
+    ```php
+    'user_entity' => [
+        'model' => App\Models\User::class, // Reemplaza con tu modelo
+        'table' => 'users' // Reemplaza con el nombre de tu tabla
+    ],
+    ```
+
 6.  **Generar la clave secreta de JWT:**
     Ejecuta el siguiente comando para generar la clave secreta que se utilizará para firmar los tokens JWT:
 
@@ -115,6 +126,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
         ],
     ],
     ```
+    En este ejemplo usamos `users` como usuario del proyecto, debe coincidir con el `user_entity.table` de la configuración
 
 9.  **Implementar JWTSubject en el modelo de usuario:**
 
@@ -161,9 +173,18 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
 
 ## Uso
 
+### Variable de Versión
+
+Puede determinar el uso de versión del paquete.
+
+```nginx
+AUTH_MANAGER_VERSION=v1
+```
+La versión puede cambiar la estructura y uso de los servicios.
+
 ### Endpoints del Servicio
 
-Puede importar el archivo `postman_collection.json` que se ubica en la carpeta `docs` de la raíz del paquete.
+Puede importar el archivo `postman_collection_{version}.json` que se ubica en la carpeta `docs` de la raíz del paquete.
 
 ### Middleware de Autenticación
 

@@ -1,10 +1,11 @@
 <?php
 
-namespace LechugaNegra\AuthManager\Http\Controllers;
+namespace LechugaNegra\AuthManager\Http\Controllers\v1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use LechugaNegra\AuthManager\Http\Requests\v1\LoginRequest;
 use LechugaNegra\AuthManager\Services\AuthManagerService;
 use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
@@ -23,7 +24,7 @@ class AuthController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         try {
             if (config('authmanager.recaptcha.enabled')) {
