@@ -11,7 +11,11 @@ return [
     */
     'user_entity' => [
         'model' => App\Models\User::class,
-        'table' => 'users'
+        'table' => 'users',
+        'active' => [
+            'field' => 'status',
+            'value' => 'active'
+        ]
     ],
 
     /*

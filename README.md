@@ -59,7 +59,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     {
         "autoload": {
             "psr-4": {
-                "LechugaNegra\\AuthManager\\": "packages/lechugaNegra/authmanager/src/"
+                "LechugaNegra\\AuthManager\\": "packages/lechuganegra/authmanager/src/"
             }
         }
     }
@@ -86,7 +86,22 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     
     Esto te permitirá personalizar el comportamiento del paquete desde tu proyecto.
 
-6.  **Generar la clave secreta de JWT:**
+6.  **Configurar el modelo de usuario (opcional):**
+
+    Puedes editar el archivo `config/auhtmanager.php` y modifica la entrada `user_entity` con la información de tu modelo:
+
+    ```php
+    'user_entity' => [
+        'model' => App\Models\User::class, // Reemplaza con tu modelo
+        'table' => 'users', // Reemplaza con el nombre de tu tabla
+        'active' => [ // Detemrina el nombre y valor de campo de usuario activo
+            'field' => 'status',
+            'value' => 'active'
+        ]
+    ],
+    ```
+
+7.  **Generar la clave secreta de JWT:**
     Ejecuta el siguiente comando para generar la clave secreta que se utilizará para firmar los tokens JWT:
 
     ```bash
@@ -95,7 +110,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
 
     Este comando agregará la clave secreta a tu archivo `.env`.
 
-7.  **Publicar la configuración de JWT:**
+8.  **Publicar la configuración de JWT:**
 
     Publica el archivo de configuración de JWT para poder personalizarlo si es necesario:
 
@@ -103,7 +118,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     php artisan vendor:publish --provider="PHPOpenSourceSaver\JWTAuth\Providers\LaravelServiceProvider"
     ```
 
-8.  **Configurar el guard de autenticación:**
+9.  **Configurar el guard de autenticación:**
 
     Edita el archivo `config/auth.php` y agrega `api` en el guard para utilizar JWT:
 
@@ -116,7 +131,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     ],
     ```
 
-9.  **Implementar JWTSubject en el modelo de usuario:**
+10.  **Implementar JWTSubject en el modelo de usuario:**
 
     Abre tu modelo de usuario (generalmente `app/Models/User.php`) y agrega la interfaz `JWTSubject` y las funciones necesarias:
 
@@ -140,7 +155,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     }
     ```
 
-10.  **Limpiar la caché:**
+11.  **Limpiar la caché:**
 
     Limpia la caché de configuración y rutas para asegurar que los cambios se apliquen correctamente:
 
@@ -151,7 +166,7 @@ Este paquete de Laravel proporciona un sistema de autenticación completo y robu
     php artisan route:cache
     ```
     
-11.  **Regenerar clases:**
+12.  **Regenerar clases:**
 
     Regenerar las clases con el cargador automático "autoload"
 

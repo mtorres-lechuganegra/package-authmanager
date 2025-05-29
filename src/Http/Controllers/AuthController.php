@@ -38,6 +38,15 @@ class AuthController extends Controller
                 return response()->json(['error' => 'Unauthorized'], 401);
             }
 
+            $user = Auth::user();
+            $active = config('authmanager.user_entity.active');
+            if (! empty($active['field'])) {
+                if (! empty($user->{$active['field']}) && $user->{$active['field']} != $active['value'] ?? '') {
+                    Auth::logout();
+                    return response()->json(['error' => 'Unauthorized'], 401);
+                }
+            }
+
             return $this->authService->respondWithToken($token);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 404);
